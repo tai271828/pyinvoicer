@@ -1,0 +1,87 @@
+@page {
+  size: A4;
+  margin: 1.5cm;
+  font-size: 10px;
+}
+
+html {
+  background-color: #ffffff;
+  color: #000000;
+  font-size: 10px;
+}
+
+header {
+  margin-bottom: 4rem;
+}
+
+section {
+  margin-bottom: 8rem;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table thead {
+  color: #ffffff;
+  background: #000000;
+}
+
+.row {
+  display: flex;
+  margin-bottom: 4rem;
+}
+
+.column-banner-left {
+  flex: 0 0 65%;
+}
+
+.column-banner-middle {
+  flex: 0 0 10%;
+}
+
+.column-banner-right {
+  flex: 0 0 25%;
+}
+
+.column-bill-to {
+  flex: 0 0 10%;
+}
+
+.column-client {
+  flex: 0 0 57%;
+}
+
+.column-company {
+  flex: 0 0 33%;
+}
+
+.logo {
+  font-size: 200%;
+}
+
+.invoice-title {
+  font-size: 300%;
+  text-align: right;
+  margin-bottom: 1px;
+}
+
+.invoice-id {
+  font-size: 150%;
+  text-align: right;
+  margin-bottom: 10px;
+  color: #6e6e6e;
+}
+
+.date-table {
+  text-align: right;
+}
+
+.field-title {
+  color: #6e6e6e;
+}
+
+.balance {
+  border-top: 20px solid transparent;
+}

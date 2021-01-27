@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Invoice</title>
+  <style>
+  {% if css %}
+    {{ css }}
+  {% endif %}
+  </style>
+</head>
+<body>
+<header>
+  <div class="row">
+    <div class="column-banner-left">
+      <div class="logo">
+        <!--img src="./img/logo.png"/-->
+        {{ company_name }}
+      </div>
+    </div>
+    <div class="column-banner-middle">
+    </div>
+    <div class="column-banner-right">
+      <div>
+        <div class="invoice-title">INVOICE</div>
+        <div class="invoice-id"># {{ invoice_id }}</div>
+      </div>
+      <div>
+        <table class="date-table">
+          <tbody>
+          <tr>
+            <td class="field-title">Date:</td>
+            <td>{{ invoice_date }}</td>
+          </tr>
+          <tr>
+            <td class="field-title">Due Date:</td>
+            <td>{{ invoice_due_date }}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="column-bill-to">
+      <font class="field-title">Bill To:</font>
+    </div>
+    <div class="column-client">
+      <div>
+        {{ client_name }}<br>
+        <address>
+          {{ client_detail | safe }}
+        </address>
+      </div>
+    </div>
+    <div class="column-company">
+      <div>
+        {{ company_name }}<br>
+        <address>
+          {{ company_detail | safe }}
+        </address>
+      </div>
+    </div>
+  </div>
+</header>
+<section>
+  <article>
+    <table>
+      <colgroup>
+        <col width="45%">
+        <col width="15%">
+        <col span="2" width="20%">
+      </colgroup>
+      <thead>
+      <tr align="left">
+        <th>Item</th>
+        <th>Units</th>
+        <th>Unit Price</th>
+        <th>Amount</th>
+      </tr>
+      </thead>
+      <tbody>
+      {% for item in items %}
+      <tr>
+        <td>{{ item.name }}</td>
+        <td>{{ item.units }}</td>
+        <td>{{ currency | safe }}{{ item.unit_price }}</td>
+        <td>{{ currency | safe }}{{ item.amount }}</td>
+      </tr>
+      {% endfor %}
+      <tr class="balance">
+        <td></td>
+        <th align="right">Total amount excl. of VAT</th>
+        <td></td>
+        <td>{{ currency | safe }}{{ total_excl_tax }}</td>
+      </tr>
+      <tr>
+        <td></td>
+        <th align="right">VAT out of scope</th>
+        <td></td>
+        <td>{{ currency | safe }}{{ total_vat }}</td>
+      </tr>
+      <tr>
+        <td></td>
+        <th align="right">Total amount incl. of VAT</th>
+        <td></td>
+        <td>{{ currency | safe }}{{ total_incl_tax }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </article>
+</section>
+<footer>
+  <div>
+    <p class="field-title">
+      Notes:
+    </p>
+    <p>
+      {{ footer_note | safe }}
+    </p>
+  </div>
+</footer>
+</body>
+</html>
