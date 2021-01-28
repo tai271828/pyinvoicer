@@ -10,7 +10,11 @@ html {
 }
 
 header {
-  margin-bottom: 100px;
+  margin-bottom: 4rem;
+}
+
+section {
+  margin-bottom: 8rem;
 }
 
 table {
@@ -33,11 +37,11 @@ table thead {
 }
 
 .column-banner-left {
-  flex: 0 0 80%;
+  flex: 0 0 60%;
 }
 
 .column-banner-right {
-  flex: 0 0 auto;
+  flex: 0 0 40%;
 }
 
 .logo {

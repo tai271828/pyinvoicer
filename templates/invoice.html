@@ -14,14 +14,24 @@
                     {{ company_name }}
                 </div>
             </div>
-            <div class="column-banner-right">
-                <div class="invoice-title">
-                    <font size="+2">INVOICE</font><br>
-                    <small>{{ invoice_id }}</small>
+            <div class="column-banner-right" align="right">
+                <div>
+                    <font size="+3">INVOICE</font><br>
+                    {{ invoice_id }}
                 </div>
-                <div class="invoice-details">
-                    <b>Date:</b> {{ invoice_date }}<br>
-                    <b>Due Date:</b> {{ invoice_due_date }}
+                <div>
+                    <table>
+                        <tbody align="right">
+                            <tr>
+                                <td>Date:</td>
+                                <td>{{ invoice_date }}</td>
+                            </tr>
+                            <tr>
+                                <td>Due Date:</td>
+                                <td>{{ invoice_due_date }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
