@@ -1,9 +1,17 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://makeapullrequest.com)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
-# pyinvoicer
+# PyInvoicer
 
-HTML-based Python script to generate invoices
+HTML-based Python script to generate invoices.
+
+This tool offers a command line to generate invoices by offering needed contents. Highlighted features:
+
+- run locallly
+- use as less third party dependency as possible
+- output html
+
+This tool is optional to output PDF files. If you want to output PDF, the corresponding third-party module is needed. See `Prerequisites`.
 
 ## Getting Started
 

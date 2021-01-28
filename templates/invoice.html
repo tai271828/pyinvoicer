@@ -8,35 +8,25 @@
 <body>
     <header>
         <div class="row">
-            <div class="column">
+            <div class="column-banner-left">
                 <div class="logo">
                     <img src="./img/logo.png"/>
                     {{ company_name }}
                 </div>
             </div>
-            <div class="column">
+            <div class="column-banner-right">
                 <div class="invoice-title">
-                    INVOICE<br>
+                    <font size="+2">INVOICE</font><br>
                     <small>{{ invoice_id }}</small>
                 </div>
                 <div class="invoice-details">
-                    <table>
-                        <tbody>
-                            <tr>
-                                <td>Date:</td>
-                                <td>{{ invoice_date }}</td>
-                            </tr>
-                            <tr>
-                                <td>Due Date:</td>
-                                <td>{{ invoice_due_date }}</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <b>Date:</b> {{ invoice_date }}<br>
+                    <b>Due Date:</b> {{ invoice_due_date }}
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="column">
+            <div class="column-banner-left">
                 <div>
                     <address>
                         {{ company_name }}<br>
@@ -46,7 +36,7 @@
                     </address>
                 </div>
             </div>
-            <div class="column">
+            <div class="column-banner-right">
                 <div>
                     <address>
                         {{ client_name }}<br>
@@ -80,7 +70,7 @@
                         <td>{{ item_unit_price }}</td>
                         <td>{{ item_amount }}</td>
                     </tr>
-                    <tr>
+                    <tr class="balance">
                         <th  colspan="3" align="right">Total amount excl. of VAT</th>
                         <td >{{ total_excl_tax }}</td>
                     </tr>

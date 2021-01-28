@@ -1,26 +1,49 @@
+@page {
+  size: A4;
+  margin: 1.5cm;
+  font-size: 15px;
+}
+
 html {
-    background-color: #ffffff;
-    color: #000000;
+  background-color: #ffffff;
+  color: #000000;
+}
+
+header {
+  margin-bottom: 100px;
 }
 
 table {
-    border-collapse: collapse;
-    width: 100%;
+  border-collapse: collapse;
+  width: 100%;
 }
 
 table thead {
-    color: #ffffff;
-    background: #000000;
+  color: #ffffff;
+  background: #000000;
 }
 
 .row {
   display: flex;
+  margin-bottom: 4rem;
 }
-  
+
 .column {
-  flex: 50%;
+  flex: 0 0 auto;
+}
+
+.column-banner-left {
+  flex: 0 0 80%;
+}
+
+.column-banner-right {
+  flex: 0 0 auto;
 }
 
 .logo {
-    font-size: 200%;
+  font-size: 200%;
+}
+
+.balance {
+  border-top: 20px solid transparent;
 }
