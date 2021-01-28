@@ -1,0 +1,26 @@
+html {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table thead {
+    color: #ffffff;
+    background: #000000;
+}
+
+.row {
+  display: flex;
+}
+  
+.column {
+  flex: 50%;
+}
+
+.logo {
+    font-size: 200%;
+}

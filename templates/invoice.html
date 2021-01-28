@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Invoice</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <header>
+        <div class="row">
+            <div class="column">
+                <div class="logo">
+                    <img src="./img/logo.png"/>
+                    {{ company_name }}
+                </div>
+            </div>
+            <div class="column">
+                <div class="invoice-title">
+                    INVOICE<br>
+                    <small>{{ invoice_id }}</small>
+                </div>
+                <div class="invoice-details">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>Date:</td>
+                                <td>{{ invoice_date }}</td>
+                            </tr>
+                            <tr>
+                                <td>Due Date:</td>
+                                <td>{{ invoice_due_date }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column">
+                <div>
+                    <address>
+                        {{ company_name }}<br>
+                        <small>
+                            {{ company_detail }}
+                        </small>
+                    </address>
+                </div>
+            </div>
+            <div class="column">
+                <div>
+                    <address>
+                        {{ client_name }}<br>
+                        {{ client_detail }}
+                    </address>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section>
+        <article>
+            <table>
+                <thead>
+                    <tr align="left">
+                        <th>Item</th>
+                        <th>Units</th>
+                        <th>Unit Price</th>
+                        <th>Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{ item_name }}</td>
+                        <td>{{ item_units }}</td>
+                        <td>{{ item_unit_price }}</td>
+                        <td>{{ item_amount }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ item_name }}</td>
+                        <td>{{ item_units }}</td>
+                        <td>{{ item_unit_price }}</td>
+                        <td>{{ item_amount }}</td>
+                    </tr>
+                    <tr>
+                        <th  colspan="3" align="right">Total amount excl. of VAT</th>
+                        <td >{{ total_excl_tax }}</td>
+                    </tr>
+                    <tr>
+                        <th  colspan="3" align="right">VAT out of scope</th>
+                        <td >{{ total_vat }}</td>
+                    </tr>
+                    <tr>
+                        <th  colspan="3" align="right">Total amount incl. of VAT</th>
+                        <td >{{ total_incl_tax }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </article>
+    </section>
+    <footer>
+        <div>
+            <small>
+                Notes:<br>
+            </small>
+            <p>
+                {{ footer_note }}
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
