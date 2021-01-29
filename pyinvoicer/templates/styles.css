@@ -32,12 +32,12 @@ table thead {
   margin-bottom: 4rem;
 }
 
-.column {
-  flex: 0 0 auto;
+.column-banner-left {
+  flex: 0 0 70%;
 }
 
-.column-banner-left {
-  flex: 0 0 80%;
+.column-banner-middle {
+  flex: 0 0 10%;
 }
 
 .column-banner-right {
