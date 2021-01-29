@@ -18,6 +18,7 @@ class BaseInvoice(ABC):
         self.items = []
         self.footer_note = ""
         self.vat_percentage = Decimal(0)
+        self.currency = ""
 
         self._content = None
         self.read_content_yaml(content_file)
@@ -78,6 +79,7 @@ class SimpleInvoice(BaseInvoice):
         self.client_name = content["client"]["name"]
         self.client_detail = content["client"]["detail"]
         self.footer_note = content["footer_note"]
+        self.currency = content["currency"]
 
     def _parse_items(self):
         for item in self._content["items"]:

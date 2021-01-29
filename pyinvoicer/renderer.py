@@ -16,11 +16,20 @@ class BaseRenderer(ABC):
 
     @abstractmethod
     def _render(self):
-        self.rendered_report = "rendered_report"
+        pass
 
     @abstractmethod
-    def dump(self, path="/tmp/"):
-        return self.rendered_report
+    def dump(self, path="/tmp/output.invoice"):
+        pass
+
+    @staticmethod
+    def get_currency_html_entity(currency_code):
+        if currency_code == "EUR":
+            return '&euro;'
+        elif currency_code == "USD":
+            return '&dollar;'
+        else:
+            return '&euro;'
 
 
 class HTMLRenderer(BaseRenderer):
@@ -37,7 +46,8 @@ class HTMLRenderer(BaseRenderer):
             "invoice_id": content.invoice_id,
             "invoice_date": content.invoice_date,
             "invoice_due_date": content.invoice_due_date,
-            "footer_note": content.footer_note
+            "footer_note": content.footer_note,
+            "currency": self.get_currency_html_entity(content.currency)
         }
 
         tag_items = {

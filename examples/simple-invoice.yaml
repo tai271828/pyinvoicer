@@ -31,3 +31,5 @@ items:
     unit_price: 10.31
 # in percentage
 vat: 0
+# ISO 4217 code, default is EUR euro
+currency: EUR

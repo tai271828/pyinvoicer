@@ -80,27 +80,27 @@
       <tr>
         <td>{{ item.name }}</td>
         <td>{{ item.units }}</td>
-        <td>{{ item.unit_price }}</td>
-        <td>{{ item.amount }}</td>
+        <td>{{ currency }}{{ item.unit_price }}</td>
+        <td>{{ currency }}{{ item.amount }}</td>
       </tr>
       {% endfor %}
       <tr class="balance">
         <td></td>
         <th align="right">Total amount excl. of VAT</th>
         <td></td>
-        <td>{{ total_excl_tax }}</td>
+        <td>{{ currency }}{{ total_excl_tax }}</td>
       </tr>
       <tr>
         <td></td>
         <th align="right">VAT out of scope</th>
         <td></td>
-        <td>{{ total_vat }}</td>
+        <td>{{ currency }}{{ total_vat }}</td>
       </tr>
       <tr>
         <td></td>
         <th align="right">Total amount incl. of VAT</th>
         <td></td>
-        <td>{{ total_incl_tax }}</td>
+        <td>{{ currency }}{{ total_incl_tax }}</td>
       </tr>
       </tbody>
     </table>
