@@ -45,6 +45,18 @@ table thead {
   flex: 0 0 25%;
 }
 
+.column-bill-to {
+  flex: 0 0 10%;
+}
+
+.column-client {
+  flex: 0 0 57%;
+}
+
+.column-company {
+  flex: 0 0 33%;
+}
+
 .logo {
   font-size: 200%;
 }
