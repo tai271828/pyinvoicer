@@ -6,114 +6,114 @@
     <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-    <header>
-        <div class="row">
-            <div class="column-banner-left">
-                <div class="logo">
-                    <!--img src="./img/logo.png"/-->
-                    {{ company_name }}
-                </div>
-            </div>
-            <div class="column-banner-right" align="right">
-                <div>
-                    <font size="+6">INVOICE</font><br>
-                    <font size="+3" color="#6e6e6e"># {{ invoice_id }}</font>
-                </div>
-                <div>
-                    <table>
-                        <tbody align="right">
-                            <tr>
-                                <td class="field-title">Date:</td>
-                                <td>{{ invoice_date }}</td>
-                            </tr>
-                            <tr>
-                                <td class="field-title">Due Date:</td>
-                                <td>{{ invoice_due_date }}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+<header>
+    <div class="row">
+        <div class="column-banner-left">
+            <div class="logo">
+                <!--img src="./img/logo.png"/-->
+                {{ company_name }}
             </div>
         </div>
-        <div class="row">
-            <div class="column-banner-left">
-                <div>
-                    <address>
-                        {{ company_name }}<br>
-                        <small>
-                            {{ company_detail }}
-                        </small>
-                    </address>
-                </div>
+        <div class="column-banner-right" align="right">
+            <div>
+                <font size="+6">INVOICE</font><br>
+                <font size="+3" color="#6e6e6e"># {{ invoice_id }}</font>
             </div>
-            <div class="column-banner-right">
-                <div>
-                    <address>
-                        {{ client_name }}<br>
-                        <small>
-                            {{ client_detail }}
-                        </small>
-                    </address>
-                </div>
-            </div>
-        </div>
-    </header>
-    <section>
-        <article>
-            <table>
-                <colgroup>
-                    <col width="45%">
-                    <col width="15%">
-                    <col span="2" width="20%">
-                </colgroup>
-                <thead>
-                    <tr align="left">
-                        <th>Item</th>
-                        <th>Units</th>
-                        <th>Unit Price</th>
-                        <th>Amount</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for item in items %}
-                        <tr>
-                            <td>{{ item.name }}</td>
-                            <td>{{ item.units }}</td>
-                            <td>{{ item.unit_price }}</td>
-                            <td>{{ item.amount }}</td>
-                        </tr>
-                    {% endfor %}
-                    <tr class="balance">
-                        <td></td>
-                        <th align="right">Total amount excl. of VAT</th>
-                        <td></td>
-                        <td>{{ total_excl_tax }}</td>
+            <div>
+                <table>
+                    <tbody align="right">
+                    <tr>
+                        <td class="field-title">Date:</td>
+                        <td>{{ invoice_date }}</td>
                     </tr>
                     <tr>
-                        <td></td>
-                        <th align="right">VAT out of scope</th>
-                        <td></td>
-                        <td>{{ total_vat }}</td>
+                        <td class="field-title">Due Date:</td>
+                        <td>{{ invoice_due_date }}</td>
                     </tr>
-                    <tr>
-                        <td></td>
-                        <th align="right">Total amount incl. of VAT</th>
-                        <td></td>
-                        <td>{{ total_incl_tax }}</td>
-                    </tr>
-                </tbody>
-            </table>
-        </article>
-    </section>
-    <footer>
-        <div>
-            <p class="field-title">
-                Notes:
-            </p>
-            <p>
-                {{ footer_note }}
-            </p>
+                    </tbody>
+                </table>
+            </div>
         </div>
-    </footer>
+    </div>
+    <div class="row">
+        <div class="column-banner-left">
+            <div>
+                <address>
+                    {{ company_name }}<br>
+                    <small>
+                        {{ company_detail }}
+                    </small>
+                </address>
+            </div>
+        </div>
+        <div class="column-banner-right">
+            <div>
+                <address>
+                    {{ client_name }}<br>
+                    <small>
+                        {{ client_detail }}
+                    </small>
+                </address>
+            </div>
+        </div>
+    </div>
+</header>
+<section>
+    <article>
+        <table>
+            <colgroup>
+                <col width="45%">
+                <col width="15%">
+                <col span="2" width="20%">
+            </colgroup>
+            <thead>
+            <tr align="left">
+                <th>Item</th>
+                <th>Units</th>
+                <th>Unit Price</th>
+                <th>Amount</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for item in items %}
+            <tr>
+                <td>{{ item.name }}</td>
+                <td>{{ item.units }}</td>
+                <td>{{ item.unit_price }}</td>
+                <td>{{ item.amount }}</td>
+            </tr>
+            {% endfor %}
+            <tr class="balance">
+                <td></td>
+                <th align="right">Total amount excl. of VAT</th>
+                <td></td>
+                <td>{{ total_excl_tax }}</td>
+            </tr>
+            <tr>
+                <td></td>
+                <th align="right">VAT out of scope</th>
+                <td></td>
+                <td>{{ total_vat }}</td>
+            </tr>
+            <tr>
+                <td></td>
+                <th align="right">Total amount incl. of VAT</th>
+                <td></td>
+                <td>{{ total_incl_tax }}</td>
+            </tr>
+            </tbody>
+        </table>
+    </article>
+</section>
+<footer>
+    <div>
+        <p class="field-title">
+            Notes:
+        </p>
+        <p>
+            {{ footer_note }}
+        </p>
+    </div>
+</footer>
 </body>
 </html>
