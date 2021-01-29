@@ -127,6 +127,9 @@ pre-commit = "^2.2.0"
 mkdocs = "^1.1"
 mkdocs-material = "^5.0.1"
 
+[tool.poetry.scripts]
+invoicer = "pyinvoicer.pyinvoicer:main"
+
 [build-system]
 requires = ["poetry>=1.0.0"]
 build-backend = "poetry.masonry.api"

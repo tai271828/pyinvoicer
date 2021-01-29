@@ -1,25 +1,36 @@
 import argparse
-import invoice
-import renderer
+import pyinvoicer.invoice
+import pyinvoicer.renderer
 
 
 def main():
     parser = argparse.ArgumentParser()
 
-    parser.add_argument("content", help="invoice content file", type=str)
-    parser.add_argument("--output", help="output file name without extension suffix", type=str, default="invoice")
-    parser.add_argument("--format", help="output file format", type=str, default="html", choices=["html", "pdf"])
+    default_format = "pdf"
+    default_output = "./invoice.format"
+
+    parser.add_argument("content", help="invoice content file (see examples)", type=str)
+    parser.add_argument("--output",
+                        help=f"output file name and path (default: {default_output})",
+                        type=str)
+    parser.add_argument("--format",
+                        help=f"output file format (default: {default_format})",
+                        type=str, default=default_format,
+                        choices=["html", "pdf"])
 
     args = parser.parse_args()
 
-    invoice_content = invoice.SimpleInvoice(args.content)
+    invoice_content = pyinvoicer.invoice.SimpleInvoice(args.content)
 
     if args.format == "pdf":
-        invoice_rendered = renderer.PDFRenderer(invoice_content)
+        invoice_rendered = pyinvoicer.renderer.PDFRenderer(invoice_content)
     else:
-        invoice_rendered = renderer.HTMLRenderer(invoice_content)
+        invoice_rendered = pyinvoicer.renderer.HTMLRenderer(invoice_content)
 
-    invoice_rendered.dump()
+    if args.output:
+        invoice_rendered.dump(args.output)
+    else:
+        invoice_rendered.dump()
 
 
 if __name__ == "__main__":

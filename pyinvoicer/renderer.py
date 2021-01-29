@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from jinja2 import Environment, Markup, PackageLoader
+from jinja2 import Environment, PackageLoader
 
 loader = PackageLoader("pyinvoicer", "templates")
 env = Environment(loader=loader)
@@ -64,7 +64,7 @@ class HTMLRenderer(BaseRenderer):
 
         self.rendered = html_template.render(**tag_all)
 
-    def dump(self, path="/tmp/invoice.html"):
+    def dump(self, path="./invoice.html"):
         with open(path, "w") as fhandler:
             fhandler.write(self.rendered)
 
@@ -73,7 +73,7 @@ class PDFRenderer(BaseRenderer):
     def _render(self):
         self.invoice_rendered_html = HTMLRenderer(self.content)
 
-    def dump(self, path="/tmp/invoice.pdf"):
+    def dump(self, path="./invoice.pdf"):
         import weasyprint
         # reuse jinja2 env to get absolute file path of the css
         css = weasyprint.CSS(filename=env.get_template("styles.css").filename)

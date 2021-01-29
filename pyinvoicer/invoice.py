@@ -3,7 +3,7 @@ import yaml
 
 from abc import ABC, abstractmethod
 from decimal import Decimal
-from item import SimpleItem
+from pyinvoicer.item import SimpleItem
 
 
 class BaseInvoice(ABC):
