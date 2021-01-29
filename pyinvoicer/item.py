@@ -34,5 +34,3 @@ class BaseItem(ABC):
 class SimpleItem(BaseItem):
     def _content_sanity_check(self):
         pass
-
-
