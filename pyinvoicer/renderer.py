@@ -25,12 +25,6 @@ class BaseRenderer(ABC):
 
 class HTMLRenderer(BaseRenderer):
     def _render(self):
-        def include_file(name):
-            # This helper function insert static files literally into Jinja
-            # templates without parsing them.
-            return Markup(loader.get_source(env, name)[0])
-
-        env.globals["include_file"] = include_file
         html_template = env.get_template("invoice.html")
 
         content = self.content
@@ -66,5 +60,12 @@ class HTMLRenderer(BaseRenderer):
 
 
 class PDFRenderer(BaseRenderer):
-    def __init__(self, content_model):
-        self.invoice_rendered_html = HTMLRenderer(content_model)
+    def _render(self):
+        self.invoice_rendered_html = HTMLRenderer(self.content)
+
+    def dump(self, path="/tmp/invoice.pdf"):
+        import weasyprint
+        # reuse jinja2 env to get absolute file path of the css
+        css = weasyprint.CSS(filename=env.get_template("styles.css").filename)
+        htmldoc = weasyprint.HTML(string=self.invoice_rendered_html.rendered, base_url="")
+        htmldoc.write_pdf(path, stylesheets=[css])

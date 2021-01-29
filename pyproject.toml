@@ -99,6 +99,7 @@ license = "BSD 3-Clause license"
 python = "^3.9"
 PyYAML = "^5.4.1"
 Jinja2 = "^2.11.2"
+WeasyPrint = "^52.2"
 
 [tool.poetry.dev-dependencies]
 # task management
