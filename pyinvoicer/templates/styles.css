@@ -34,7 +34,7 @@ table thead {
 }
 
 .column-banner-left {
-  flex: 0 0 70%;
+  flex: 0 0 65%;
 }
 
 .column-banner-middle {
@@ -42,7 +42,7 @@ table thead {
 }
 
 .column-banner-right {
-  flex: 0 0 20%;
+  flex: 0 0 25%;
 }
 
 .logo {
@@ -51,11 +51,19 @@ table thead {
 
 .invoice-title {
   font-size: 300%;
+  text-align: right;
+  margin-bottom: 1px;
 }
 
 .invoice-id {
   font-size: 150%;
+  text-align: right;
+  margin-bottom: 10px;
   color: #6e6e6e;
+}
+
+.date-table {
+  text-align: right;
 }
 
 .field-title {
