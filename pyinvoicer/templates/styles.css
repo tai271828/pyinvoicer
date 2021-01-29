@@ -37,15 +37,19 @@ table thead {
 }
 
 .column-banner-left {
-  flex: 0 0 60%;
+  flex: 0 0 80%;
 }
 
 .column-banner-right {
-  flex: 0 0 40%;
+  flex: 0 0 20%;
 }
 
 .logo {
   font-size: 200%;
+}
+
+.field-title {
+  color: #6e6e6e;
 }
 
 .balance {

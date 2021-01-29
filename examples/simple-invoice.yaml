@@ -1,0 +1,33 @@
+company:
+  name: Example Company Ltd.
+  detail: >-
+    Example Company Ltd.<br>
+    Example Company Ltd. address<br>
+    BTW-nr ABCDEFG<br>
+    E-mail abc@def.com<br>
+    IBAN: ASDFASDF<br>
+    KvK-nr: 12345678<br>
+client:
+  name: Example Client Ltd.
+  detail: >-
+    Example Client Ltd.<br>
+    Example Company Ltd. address<br>
+    Example Company No.: 87654321<br>
+invoice:
+  id: 12344321
+  date: Jan 1, 2021
+  due_date: Jan 10, 2021
+footer_note: >-
+  VAT out of scope<br><br>
+  Payment Terms<br><br>
+  Contact
+items:
+  item1:
+    name: item1name
+    units: 1
+    unit_price: 50
+  item2:
+    name: item2name
+    units: 2
+    unit_price: 100
+vat: 0
