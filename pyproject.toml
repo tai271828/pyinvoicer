@@ -97,6 +97,8 @@ license = "BSD 3-Clause license"
 
 [tool.poetry.dependencies]
 python = "^3.9"
+PyYAML = "^5.4.1"
+Jinja2 = "^2.11.2"
 
 [tool.poetry.dev-dependencies]
 # task management
