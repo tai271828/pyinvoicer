@@ -62,6 +62,11 @@ class HTMLRenderer(BaseRenderer):
         }
         tag_all.update(tag_total_amounts)
 
+        # reuse jinja2 env to get absolute file path of the css
+        with open(env.get_template("styles.css").filename, "r") as fhandler:
+            css = fhandler.read()
+            tag_all.update({"css": css})
+
         self.rendered = html_template.render(**tag_all)
 
     def dump(self, path="./invoice.html"):
@@ -75,7 +80,5 @@ class PDFRenderer(BaseRenderer):
 
     def dump(self, path="./invoice.pdf"):
         import weasyprint
-        # reuse jinja2 env to get absolute file path of the css
-        css = weasyprint.CSS(filename=env.get_template("styles.css").filename)
         htmldoc = weasyprint.HTML(string=self.invoice_rendered_html.rendered, base_url="")
-        htmldoc.write_pdf(path, stylesheets=[css])
+        htmldoc.write_pdf(path)
