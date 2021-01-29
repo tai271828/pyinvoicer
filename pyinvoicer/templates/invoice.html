@@ -18,8 +18,8 @@
     </div>
     <div class="column-banner-right" align="right">
       <div>
-        <font size="+6">INVOICE</font><br>
-        <font size="+3" color="#6e6e6e"># {{ invoice_id }}</font>
+        <div class="invoice-title">INVOICE</div>
+        <div class="invoice-id"># {{ invoice_id }}</div>
       </div>
       <div>
         <table>
@@ -40,11 +40,9 @@
   <div class="row">
     <div class="column-banner-left">
       <div>
+        {{ company_name }}<br>
         <address>
-          {{ company_name }}<br>
-          <small>
-            {{ company_detail }}
-          </small>
+          {{ company_detail }}
         </address>
       </div>
     </div>
@@ -53,11 +51,9 @@
     </div>
     <div class="column-banner-right">
       <div>
+        {{ client_name }}<br>
         <address>
-          {{ client_name }}<br>
-          <small>
-            {{ client_detail }}
-          </small>
+          {{ client_detail }}
         </address>
       </div>
     </div>
