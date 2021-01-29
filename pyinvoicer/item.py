@@ -25,8 +25,10 @@ class BaseItem(ABC):
         content = self._content
 
         self.name = content["name"]
-        self.units = Decimal(content["units"])
-        self.unit_price = Decimal(content["unit_price"])
+        # fool-proof. no matter what type of the number users input, for example, 12.34 or "12.34", convert them into
+        # string for decimal later to keep the calculation precision.
+        self.units = Decimal(str(content["units"]))
+        self.unit_price = Decimal(str(content["unit_price"]))
 
 
 class SimpleItem(BaseItem):
