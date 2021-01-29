@@ -81,8 +81,7 @@ class SimpleInvoice(BaseInvoice):
 
     def _parse_items(self):
         for item in self._content["items"]:
-            item_content = self._content["items"][item]
-            simple_item = SimpleItem(item_content)
+            simple_item = SimpleItem(item)
             self.items.append(simple_item)
 
     @property

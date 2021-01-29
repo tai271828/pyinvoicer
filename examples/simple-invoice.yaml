@@ -22,12 +22,12 @@ footer_note: >-
   Payment Terms<br><br>
   Contact
 items:
-  item1:
-    name: item1name
+  - name: item1 name - goods
     units: 1
     unit_price: 50
-  item2:
-    name: item2name
+  - name: item2 name - service
     units: 2
-    unit_price: 100
+    # both 10.31 or "10.31" are good for the calculation precision in our tool
+    unit_price: 10.31
+# in percentage
 vat: 0
