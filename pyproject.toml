@@ -90,11 +90,11 @@ norecursedirs = [
 
 [tool.poetry]
 name = "pyinvoicer"
-version = "0.0.1"
+version = "0.0.2rc1"
 description = "HTML-based Python script to generate invoices."
 authors = ["Taihsiang Ho (tai271828) <tai271828@gmail.com>"]
 license = "BSD 3-Clause license"
-readme = README.md
+readme = "docs/README.md"
 
 [tool.poetry.dependencies]
 python = "^3.9"
