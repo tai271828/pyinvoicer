@@ -1,28 +1,66 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://makeapullrequest.com)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
+
 # PyInvoicer
 
 HTML-based Python script to generate invoices.
 
 This tool offers a command line to generate invoices by offering needed contents. Highlighted features:
 
-- run locallly
+- run locally
 - use as less third party dependency as possible
-- output html
+- output html and pdf
 
-This tool is optional to output PDF files. If you want to output PDF, the corresponding third-party module is needed. See `Prerequisites`.
 
 ## Getting Started
 
 ### Prerequisites
 * [Python](https://www.python.org/downloads/)
 
+The release has been tested with Python 3.9.1.
+
+### Installation
+The tool has been released to PyPI. You can install it directly from PyPI via pip.
+
+```
+pip install pyinvoicer
+```
+
+If you want to install from the source, you may need `poetry`, the package dependency management tool.
+This project is managed by `poetry`. Fetch the source and `poetry install`. See [Contributing](contributing.md) for
+more details.
+
+
 ## Usage
+```buildoutcfg
+invoicer <your content yaml>
+```
+
+You will get `invoice.pdf` in the same folder. The [examples](examples/simple-invoice.yaml) folder of the source
+shows an example of the content yaml.
+
+
+### Output in Different Format
+For example, if you want to output your invoice in html, invoke:
+```buildoutcfg
+invoicer <your content yaml> --format html
+```
+
+
+### Output with Customized Name and Path
+```buildoutcfg
+invoicer <your content yaml> /path/you/want/to/use/your-invoice.pdf
+```
+
+
+### More Usage Options
+Please refer to `invoicer --help`.
 
 
 ## Contributing
 See [Contributing](contributing.md)
+
 
 ## Authors
 Taihsiang Ho (tai271828) <tai271828@gmail.com>
