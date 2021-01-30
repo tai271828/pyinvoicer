@@ -1,4 +1,5 @@
 import argparse
+
 import pyinvoicer.invoice
 import pyinvoicer.renderer
 
@@ -10,13 +11,18 @@ def main():
     default_output = "./invoice.format"
 
     parser.add_argument("content", help="invoice content file (see examples)", type=str)
-    parser.add_argument("--output",
-                        help=f"output file name and path (default: {default_output})",
-                        type=str)
-    parser.add_argument("--format",
-                        help=f"output file format (default: {default_format})",
-                        type=str, default=default_format,
-                        choices=["html", "pdf"])
+    parser.add_argument(
+        "--output",
+        help=f"output file name and path (default: {default_output})",
+        type=str,
+    )
+    parser.add_argument(
+        "--format",
+        help=f"output file format (default: {default_format})",
+        type=str,
+        default=default_format,
+        choices=["html", "pdf"],
+    )
 
     args = parser.parse_args()
 

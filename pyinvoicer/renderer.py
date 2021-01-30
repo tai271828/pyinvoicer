@@ -1,4 +1,5 @@
 from abc import ABC, abstractmethod
+
 from jinja2 import Environment, PackageLoader
 
 loader = PackageLoader("pyinvoicer", "templates")
@@ -25,11 +26,11 @@ class BaseRenderer(ABC):
     @staticmethod
     def get_currency_html_entity(currency_code):
         if currency_code == "EUR":
-            return '&euro;'
+            return "&euro;"
         elif currency_code == "USD":
-            return '&dollar;'
+            return "&dollar;"
         else:
-            return '&euro;'
+            return "&euro;"
 
 
 class HTMLRenderer(BaseRenderer):
@@ -47,18 +48,16 @@ class HTMLRenderer(BaseRenderer):
             "invoice_date": content.invoice_date,
             "invoice_due_date": content.invoice_due_date,
             "footer_note": content.footer_note,
-            "currency": self.get_currency_html_entity(content.currency)
+            "currency": self.get_currency_html_entity(content.currency),
         }
 
-        tag_items = {
-            "items": content.items
-        }
+        tag_items = {"items": content.items}
         tag_all.update(tag_items)
 
         tag_total_amounts = {
             "total_excl_tax": content.total_excl_tax,
             "total_vat": content.vat_percentage,
-            "total_incl_tax": content.total_incl_tax
+            "total_incl_tax": content.total_incl_tax,
         }
         tag_all.update(tag_total_amounts)
 
@@ -80,5 +79,8 @@ class PDFRenderer(BaseRenderer):
 
     def dump(self, path="./invoice.pdf"):
         import weasyprint
-        htmldoc = weasyprint.HTML(string=self.invoice_rendered_html.rendered, base_url="")
+
+        htmldoc = weasyprint.HTML(
+            string=self.invoice_rendered_html.rendered, base_url=""
+        )
         htmldoc.write_pdf(path)

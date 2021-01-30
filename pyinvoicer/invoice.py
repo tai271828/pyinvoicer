@@ -1,8 +1,9 @@
 import logging
-import yaml
-
 from abc import ABC, abstractmethod
 from decimal import Decimal
+
+import yaml
+
 from pyinvoicer.item import SimpleItem
 
 
