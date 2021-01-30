@@ -11,6 +11,7 @@ class BaseInvoice(ABC):
     def __init__(self, content_file):
         self.company_name = ""
         self.company_detail = ""
+        self.company_logo = ""
         self.invoice_id = ""
         self.invoice_date = ""
         self.invoice_due_date = ""
@@ -74,6 +75,7 @@ class SimpleInvoice(BaseInvoice):
         content = self._content
         self.company_name = content["company"]["name"]
         self.company_detail = content["company"]["detail"]
+        self.company_logo = content["company"]["logo_url"]
         self.invoice_id = content["invoice"]["id"]
         self.invoice_date = content["invoice"]["date"]
         self.invoice_due_date = content["invoice"]["due_date"]
