@@ -3,7 +3,8 @@ from abc import ABC, abstractmethod
 from jinja2 import Environment, PackageLoader
 
 loader = PackageLoader("pyinvoicer", "templates")
-env = Environment(loader=loader)
+# default true for security concern of XSS. See bandit B701.
+env = Environment(loader=loader, autoescape=True)
 
 
 class BaseRenderer(ABC):
