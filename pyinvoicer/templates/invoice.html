@@ -49,7 +49,7 @@
       <div>
         {{ client_name }}<br>
         <address>
-          {{ client_detail }}
+          {{ client_detail | safe }}
         </address>
       </div>
     </div>
@@ -57,7 +57,7 @@
       <div>
         {{ company_name }}<br>
         <address>
-          {{ company_detail }}
+          {{ company_detail | safe }}
         </address>
       </div>
     </div>
@@ -84,27 +84,27 @@
       <tr>
         <td>{{ item.name }}</td>
         <td>{{ item.units }}</td>
-        <td>{{ currency }}{{ item.unit_price }}</td>
-        <td>{{ currency }}{{ item.amount }}</td>
+        <td>{{ currency | safe }}{{ item.unit_price }}</td>
+        <td>{{ currency | safe }}{{ item.amount }}</td>
       </tr>
       {% endfor %}
       <tr class="balance">
         <td></td>
         <th align="right">Total amount excl. of VAT</th>
         <td></td>
-        <td>{{ currency }}{{ total_excl_tax }}</td>
+        <td>{{ currency | safe }}{{ total_excl_tax }}</td>
       </tr>
       <tr>
         <td></td>
         <th align="right">VAT out of scope</th>
         <td></td>
-        <td>{{ currency }}{{ total_vat }}</td>
+        <td>{{ currency | safe }}{{ total_vat }}</td>
       </tr>
       <tr>
         <td></td>
         <th align="right">Total amount incl. of VAT</th>
         <td></td>
-        <td>{{ currency }}{{ total_incl_tax }}</td>
+        <td>{{ currency | safe }}{{ total_incl_tax }}</td>
       </tr>
       </tbody>
     </table>
@@ -116,7 +116,7 @@
       Notes:
     </p>
     <p>
-      {{ footer_note }}
+      {{ footer_note | safe }}
     </p>
   </div>
 </footer>
