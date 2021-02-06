@@ -1,3 +1,5 @@
+import base64
+import logging
 from abc import ABC, abstractmethod
 
 from jinja2 import Environment, PackageLoader
@@ -61,6 +63,17 @@ class HTMLRenderer(BaseRenderer):
             "total_incl_tax": content.total_incl_tax,
         }
         tag_all.update(tag_total_amounts)
+
+        # embed logo image if available
+        try:
+            with open(content.company_logo, "rb") as img_file:
+                img_data = img_file.read()
+                img_data_decoded = base64.b64encode(img_data).decode("utf-8").replace("\n", "")
+                tag_all.update({"logo": img_data_decoded})
+        except TypeError as e:
+            logging.warning(f"Please check your logo_url: logo_url should be a str: {e}")
+        except FileNotFoundError as e:
+            logging.info(f"Please check your logo_url: logo is not available from logo_url: {e}")
 
         # reuse jinja2 env to get absolute file path of the css
         with open(env.get_template("styles.css").filename, "r") as fhandler:

@@ -34,15 +34,15 @@ table thead {
 }
 
 .column-banner-left {
-  flex: 0 0 65%;
+  flex: 0 0 75%;
 }
 
 .column-banner-middle {
-  flex: 0 0 10%;
+  flex: 0 0 5%;
 }
 
 .column-banner-right {
-  flex: 0 0 25%;
+  flex: 0 0 20%;
 }
 
 .column-bill-to {
@@ -58,7 +58,14 @@ table thead {
 }
 
 .logo {
-  font-size: 200%;
+  font-size: 25px;
+}
+
+.logo .company-img {
+  alt: "Company Logo";
+  width: 25px;
+  height: 25px;
+  vertical-align: top;
 }
 
 .invoice-title {
